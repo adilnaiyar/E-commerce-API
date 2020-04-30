@@ -12,5 +12,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+
+    	factory(App\Model\Product::class,5)->create()->each(function (App\Model\Product $product) {
+        factory(App\Model\Review::class,2)->create(['product_id' => $product->id]);
+    	});
+
     }
 }
