@@ -10,8 +10,14 @@ class Product extends Model
     	'name', 'detail', 'stock', 'price', 'discount'
     ];
     
+    public function users()
+    {
+    	return $this->belongsTo('App\User', 'user_id');
+    }
+
     public function reviews()
     {
     	return $this->hasMany('App\Model\Review');
     }
+
 }
